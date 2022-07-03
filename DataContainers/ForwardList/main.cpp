@@ -31,6 +31,7 @@ public:
 	}
 	~ForwardList()
 	{
+		clear();
 		cout << "LDestructor:\t" << this << endl;
 	}
 	//				Adding Elements:
@@ -102,6 +103,22 @@ public:
 		delete temp->pNext;
 		temp->pNext = nullptr;
 	}
+
+	void erase(int index)
+	{
+		if (index == 0) pop_front();
+		else
+		{
+			Element* previous = this->Head;
+			for (int i = 0; i < index - 2; i++)
+			{
+				previous = previous->pNext;
+			}
+			Element* erased = previous->pNext;
+			previous->pNext = erased->pNext;
+			delete erased;
+		}
+	}
 	
 	//				Methods:
 	void  print()const
@@ -125,6 +142,8 @@ int main()
 	{
 		list.push_front(rand() % 100);
 	}
+	list.print();
+	list.erase(3);
 	list.print();
 	list.push_back(123);
 	list.print();
