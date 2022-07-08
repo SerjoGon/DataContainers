@@ -20,8 +20,8 @@ public:
 	}
 	void set_weight(int weight)
 	{
-		if (weight > 0)this->weight = weight;
-		else weight = 50;
+		if (weight <= 0)this->weight = 50;
+		else this->weight = weight;
 	}
 	void set_name(std::string name)
 	{
@@ -29,9 +29,8 @@ public:
 	}
 	// Constructors
 
-	Human(std::string name = "Name") {}
 
-	Human(int age,int weight, std::string name)
+	Human(int age = 0,int weight = 0, std::string name = "No-name")
 	{
 		set_age(age);
 		set_weight(weight);
@@ -43,7 +42,7 @@ public:
 	{
 		cout << "ФИО:	" << get_name() << endl;
 		cout << "Возраст:	" << get_age() << endl;
-		cout << "Вес:	" << get_weight() << endl;
+		cout << "Вес:	" << get_weight() << endl << endl;
 	}
 };
 
@@ -58,7 +57,8 @@ int main()
 	Stuart.set_weight(65);
 	Stuart.set_name("Stuart Little");
 	Stuart.print();
-
+	Human Ivan;
+	Ivan.print();
 
 	return 0;
 }
