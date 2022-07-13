@@ -12,6 +12,7 @@ class Element
 	static int count;
 public:
 	friend ForwardList operator+(const ForwardList& left, const ForwardList& right);
+	int main();
 	Element(int Data, Element* pNext = nullptr) :Data(Data), pNext(pNext)
 	{
 		count++;
@@ -23,15 +24,65 @@ public:
 		cout << "EDestructor:\t" << this << endl;
 	}
 	friend class ForwardList;
+	friend class Iterator;
 };
 
 int Element::count = 0;
+
+class Iterator
+{
+	Element* Temp;
+public:
+	Iterator(Element* Temp = nullptr) : Temp(Temp)
+	{
+		cout << "ItConstructor!:\t" << this << endl;
+	}
+	~Iterator()
+	{
+		cout << "ItDestructor:\t" << this << endl;
+	}
+	Iterator& operator++()
+	{
+		Temp = Temp->pNext;
+		return *this;
+	}
+	Iterator operator++(int)
+	{
+		Iterator old = *this;
+		Temp = Temp->pNext;
+		return old;
+	}
+	bool operator==(const Iterator& other)const
+	{
+		return this->Temp == other.Temp;
+	}
+	bool operator!=(const Iterator& other)const
+	{
+		return this->Temp != other.Temp;
+	}
+	const int& operator*()const
+	{
+		return Temp->Data;
+	}
+	int& operator*()
+	{
+		return Temp->Data;
+	}
+};
 
 class ForwardList
 {
 	Element* Head;
 	unsigned int size;
 public:
+	Iterator begin()
+	{
+		return Head;
+	}
+	Iterator end()
+	{
+		return nullptr;
+	}
 	ForwardList(Element* Head = nullptr) :Head(Head)
 	{
 		size = 0;
@@ -193,6 +244,7 @@ public:
 		cout << "Количество элементов списка: " << size << endl;
 		cout << "Общее количество элементов: " << Element::count << endl;
 	}
+	
 	friend ForwardList operator+(const ForwardList& left, const ForwardList& right);
 };
 
@@ -304,7 +356,16 @@ int main()
 #endif // RANGE_BASED_ARRAY
 	ForwardList list = { 3,5,8,13,21 };
 	list.print();
-
+	for (int i : list)
+	{
+		cout << i << tab;
+	}
+	cout << endl;
+	for (Iterator it = list.begin();it != list.end();++it)
+	{
+		cout << *it << tab;
+	}
+	cout << endl;
 	//---------------------------------
 	return 0;
 }
