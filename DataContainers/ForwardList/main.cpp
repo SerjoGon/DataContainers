@@ -12,7 +12,6 @@ class Element
 	static int count;
 public:
 	friend ForwardList operator+(const ForwardList& left, const ForwardList& right);
-	int main();
 	Element(int Data, Element* pNext = nullptr) :Data(Data), pNext(pNext)
 	{
 		count++;
