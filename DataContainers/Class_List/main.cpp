@@ -24,8 +24,10 @@ class List
 		~Element() { cout << "ElementDestructor:\t" << this << endl; }
 		friend class List;
 		friend List operator+(const List& left, const List& right);
-	}*head, * tail;
-	size_t size;
+	};
+	Element* head;
+	Element* tail;
+	unsigned int size;
 public:
 	
 	class iterator
