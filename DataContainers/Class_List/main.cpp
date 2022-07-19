@@ -6,8 +6,8 @@ using std::endl;
 #define tab "\t"
 #define DELIMETER "\n--------------------------------------\n"
 
-class List;
-class Element;
+//class List;
+//class Element;
 class List
 {
 	class Element
@@ -170,7 +170,9 @@ public:
 	}
 	~List()
 	{
-		while(head)pop_front();
+		//while(head)pop_front();
+		while (tail)pop_back();
+		cout << "ListDestructor:\t" << this << endl;
 	}
 	// Operators:
 	List& operator=(const List& other)
@@ -326,6 +328,7 @@ int main()
 	list.reverse_print();
 	list.insert(4, 345);
 	list.reverse_print();
+	cout << DELIMETER;
 	list.erase(3);
 	list.print();
 	cout << DELIMETER;
@@ -338,11 +341,18 @@ int main()
 	}
 	cout << endl;
 	cout << DELIMETER;
-	for (List::iterator it = list1.begin();it != list1.end();it++)
+	for (List::iterator it = list1.begin();it != list1.end();++it)
 	{
 		cout << *it << tab;
 	}
-	cout << DELIMETER;
+	cout << "=========================== reverse iterator check: ========================== = \n";
+	for (List::reverseiterator it = list1.reverse_begin();it != list1.reverse_end();++it)
+	{
+		cout << *it << tab;
+	}
+
+	list1 + list;
+	list1.print();
 
 	// end of main! :D
 	return 0;
