@@ -128,7 +128,7 @@ class List
 	T1* tail;
 	uint64_t size;
 public:
-	// Methods Iterator's:
+	// Methods ConstIterator's:
 	const Iterator<T1> begin()const { return head; }
 	const Iterator<T1> end()const { return nullptr; }
 	ReverseIterator<T1> revers_begin() { return tail; }
