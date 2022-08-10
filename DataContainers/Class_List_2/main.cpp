@@ -146,19 +146,19 @@ public:
 		}
 	};
 
-	ConstIterator cbegin()
+	ConstIterator cbegin()const
 	{
 		return Head;
 	}
-	ConstIterator cend()
+	ConstIterator cend()const
 	{
 		return nullptr;
 	}
-	ConstReverseIterator crbegin()
+	ConstReverseIterator crbegin()const
 	{
 		return Tail;
 	}
-	ConstReverseIterator crend()
+	ConstReverseIterator crend()const
 	{
 		return nullptr;
 	}
@@ -178,7 +178,7 @@ public:
 		//for (int const* it = il.begin();it != il.end();++it)push_back(*it);
 		for (int i : il)push_back(i);// SuperMaster FOR! цикл не для слабаков)))
 	}
-	List(const List& other):List()
+	List(const List& other)
 	{
 		for (ConstIterator it = other.cbegin();it != other.cend();++it)push_back(*it);
 	}
