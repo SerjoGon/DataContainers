@@ -94,7 +94,7 @@ public:
 	class ConstReverseIterator:public ConstBaseIterator
 	{
 	public:
-		ConstReverseIterator(Element* Temp) :ConstBaseIterator(Temp)
+		ConstReverseIterator(Element* Temp) :C	onstBaseIterator(Temp)
 		{
 			cout << "CRITConstructor:\t" << this << endl;
 		}
