@@ -488,7 +488,6 @@ int main()
 		cout << *rit << tab;
 	}
 	cout << endl;
-
 	List<int> list1 = { 3,5,8,13,21 };
 	List<int> list2 = { 34,55,89 };
 	List<int> list3 = list1 + list2;
