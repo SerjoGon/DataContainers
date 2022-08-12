@@ -139,7 +139,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Adding_Elements.cpp" />
+    <ClCompile Include="ConstBaseIterator.cpp" />
+    <ClCompile Include="ConstIterator.cpp" />
+    <ClCompile Include="ConstReverseIterator.cpp" />
+    <ClCompile Include="Element.cpp" />
+    <ClCompile Include="Iterators_Methods.cpp" />
+    <ClCompile Include="List_Constructors.cpp" />
+    <ClCompile Include="List_Operators.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Print_Methods.cpp" />
+    <ClCompile Include="Removing_Elements.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Inclusions.h" />
+    <ClInclude Include="List_declaration.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
