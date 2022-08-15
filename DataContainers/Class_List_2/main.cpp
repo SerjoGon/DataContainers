@@ -322,7 +322,7 @@ int main()
 	List list;
 	for (int i = 0; i < n; i++)
 	{
-		//list.push_front(rand() % 100);
+		//list.push(rand() % 100);
 		list.push_back(rand() % 100);
 	}
 	list.print();
