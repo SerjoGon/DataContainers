@@ -3,13 +3,15 @@
 #include<vector>
 #include<deque>
 #include<list>
+#include<iterator>
 using std::cout;
 using std::cin;
 using std::endl;
 //#define VECTOR
 //#define ARRAY
 //#define DEQUE
-#define STL_LIST
+//#define STL_LIST
+#define LIST_STL
 #define tab "\t"
 int main()
 {
@@ -120,6 +122,23 @@ int main()
 
 	
 #endif // STL_LIST
+#ifdef LIST_STL
+	std::list<datatype> list = { 3,5,8,13,21 };
+	for(std::list<datatype>::iterator it = list.begin();it != list.end();++it)
+	{
+		cout << *it << tab;
+	}
+	cout << endl;
+	int index;
+	int value;
+	cout << "Введите индекс добавляемого элемента: ";cin >> index;
+	cout << "Введите значение добавляемого элемента: ";cin >> value;
+	std::list<datatype>::iterator position = list.begin();
+	//for (int i = 0; i < index; i++)position++;
+	std::advance(position, index);
+	list.insert(position, value);
+	for (int i : list)cout << i << tab; cout << endl;
+#endif // LIST_STL
 
 	return 0;
 }
