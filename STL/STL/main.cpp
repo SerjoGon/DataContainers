@@ -2,12 +2,14 @@
 #include<array>
 #include<vector>
 #include<deque>
+#include<list>
 using std::cout;
 using std::cin;
 using std::endl;
 //#define VECTOR
 //#define ARRAY
-#define DEQUE
+//#define DEQUE
+#define STL_LIST
 #define tab "\t"
 int main()
 {
@@ -100,6 +102,24 @@ int main()
 	deque.push_front(0);
 	for (int i : deque)cout << i << tab;cout << endl;
 #endif // DEQUE
+#ifdef STL_LIST
+	std::list<int> list1 = { 3,5,8,13,21,34 };
+	int index;
+	int value;
+	std::list<datatype>::iterator position;
+	for (int i : list1)cout << i << tab;cout << endl;
+	cout << "Введите значение добавляемого элемента: ";cin >> value;
+	cout << "Введите индекс добавляемого элемента: ";cin >> index;
+	for (position = list1.begin();index;++position, --index);
+	list1.insert(position, value);
+	for (int i : list1)cout << i << tab;cout << endl;
+	cout << "Введите индекс удаляемого элемента: ";cin >> index;
+	for (position = list1.begin();index;++position, --index);
+	list1.erase(position);
+	for (int i : list1)cout << i << tab;cout << endl;
+
+	
+#endif // STL_LIST
 
 	return 0;
 }
